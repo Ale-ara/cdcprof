@@ -817,9 +817,9 @@
                             <input name="novos_membros" id="novos_membros" type="text" placeholder="Nickname dos novos membros. Separe com ' / ' Ex: Qox / Amy.Love.Girl" required>
                         </div>
                         <div class="input-box">
-                            <span class="details_span">Setor</span>
+                            <span class="details_span">Cargo</span>
                             <select id="necessidade_novos">                          
-                                <option value="" disabled selected>Selecione o setor selecionado</option>
+                                <option value="" disabled selected>Selecione o cargo selecionado</option>
                                 <option value="1">Analista</option>
                                 <option value="2">Docente</option>
                                 <option value="3">Arquiteto</option>
@@ -841,14 +841,22 @@
                             <span class="details_span">Membro reintegrado</span>
                             <input name="nickname_reintegrado" id="nickname_reintegrado" type="text" placeholder="Nickname do membro reintegrado" required>                 
                         </div>
+
+                        <div class="input-box">
+                          <span class="details_span">Cargo</span>
+                          <select id="reint_cargo">                          
+                              <option value="" disabled selected>Selecione o cargo reintegrado</option>
+                              <option value="Analista">Analista</option>
+                              <option value="Docente">Docente</option>
+                              <option value="Arquiteto">Arquiteto</option>
+                          </select>
+                      </div>
+
                         <div class="input-box">
                             <span class="details_span">Permissão</span>
                             <input name="lid_permitida" id="lid_permitida" type="text" placeholder="Membro da diretoria que concedeu a permissão" required>                 
                         </div>
-                        <div class="check-box">
-                            <input id="confirmar_reint" name="confirmar_reint" type="checkbox" value= null>     
-                                <label id="confirmar_reint_lb" for="confirmar_reint">Li e concordo com as normas de saída descritas no Código de Conduta e Ética da Comissão de Desenvolvimento Cultural.</label><br>
-                        </div>
+                       
                         <div class="button">
                             <input type="submit" id="enviar_rein" value="Enviar">
                         </div>
@@ -923,39 +931,45 @@
             <div class="card" id="mudança_cargo">
                 <div class="tittle">PROMOÇÃO OU REBAIXAMENTO</div>
                 <form id="change_cargo" action="#" onsubmit="fill_change(event)">
-                <input type="text" name="horario_envio_change" id="horario_envio_change" style="display: none;">
-                    <div class="details">
-                        <div class="input-box">
-                            <span class="details_span">Nickname</span>
-                            <input name="nickname_mudança_cargo" id="nickname_mudança_cargo" type="text" placeholder="Ex: Qox" required>                 
-                        </div>
-                        <div class="input-box">
-                            <span class="details_span">Antigo cargo</span>
-                            <select name="antigo_cargo" id="antigo_cargo">
-                                <option value="" disabled selected>Selecione o cargo atual</option>
-                                <option value="Professor">Analista</option>
-                                <option value="Coordenador">Docente</option>
-                                <option value="Graduador">Arquiteto</option>
-                                <option value="Secretário de Relações Sociais">Secretário de Relações Sociais</option>
-                                <option value="Secretário de Educação">Secretário de Educação</option>
-                                <option value="Vice-diretor">Vice-diretor</option>
-                                <option value="Diretor">Diretor</option>
+                  <input type="text" name="horario_envio_change" id="horario_envio_change" style="display: none;" />                       
+<div class="details">
+                               
+ <div class="input-box">
+                                  <span class="details_span">Nickname:</span>                            <input name="nickname_mudança_cargo" id="nickname_mudança_cargo" type="text" placeholder="Nickname do membro que sofrerá a ação proposta" required="" />                                            
+ </div>
+                               
+ 
+                               
+ <div class="input-box">
+                                  <span class="details_span">Cargo atual:</span>                            <select name="antigo_cargo" id="antigo_cargo">
+                   <option value="" disabled="" selected="">Selecione o cargo atual</option>
+                                <option value="1">Analista</option>
+                                <option value="2">Docente</option>
+                                <option value="3">Arquiteto</option>
+                                <option value="4">Secretário de Relações Sociais</option>
+                                <option value="5">Secretário de Educação</option>
+                                <option value="6">Vice-diretor</option>
+                                <option value="7">Diretor</option>
                             </select>                 
                         </div>
                         <div class="input-box">
-                            <span class="details_span">Cargo atual</span>
-                            <select name="novo_cargo" id="novo_cargo">
-                                <option value="" disabled selected>Selecione o cargo atual</option>
-                                <option value="Professor">Analista</option>
-                                <option value="Coordenador">Docente</option>
-                                <option value="Graduador">Arquiteto</option>
-                                <option value="Secretário de Relações Sociais">Secretário de Relações Sociais</option>
-                                <option value="Secretário de Educação">Secretário de Educação</option>
-                                <option value="Vice-diretor">Vice-diretor</option>
-                                <option value="Diretor">Diretor</option>
+                          <span class="details_span">Novo cargo:</span>                            
+                          <select name="novo_cargo" id="novo_cargo">
+                                <option value="" disabled selected>Selecione o novo cargo</option>
+                                <option value="1">Analista</option>
+                                <option value="2">Docente</option>
+                                <option value="3">Arquiteto</option>
+                                <option value="4">Secretário de Relações Sociais</option>
+                                <option value="5">Secretário de Educação</option>
+                                <option value="6">Vice-diretor</option>
+                                <option value="7">Diretor</option>
                             </select>
                         </div>
                        
+                        <div class="input-box">
+                          <span class="details_span">Motivo da ação:</span>                            <input name="motivo_mudança_cargo" id="motivo_mudança_cargo" type="text" placeholder="Motivo da promoção ou rebaixamento" required="" />                                            
+</div> 
+
                         <div class="button">
                             <input type="submit" id="enviar_change" value="Enviar">
                         </div>
@@ -976,6 +990,12 @@
                             <span class="details_span">Permissão</span>
                             <input id="permissão_saída" name="permissão_saída" type="text" placeholder="Nickname do membro que concedeu a permissão" required>                 
                         </div>
+
+                        <div class="input-box" style="width: 100%;" id="saida_motivo">
+                          <span class="details_span">Motivo</span>
+                          <input id="motivo_saida" name="motivo_saida" type="text" placeholder="Motivo para saída." required>                 
+                      </div>
+
                         <div class="check-box">
                             <input id="confirmar_saida" name="confirmar_saida" type="checkbox" value= null onchange="ValidaCheckBox('confirmar_saida')">     
                                 <label id="confirmar_saida_lb" for="confirmar_saida">Li e concordo com as normas de saída descritas no Código de Conduta e Ética da Comissão de Desenvolvimento Cultural.</label><br>
@@ -1008,8 +1028,8 @@
                             </select>
                         </div>
                         <div class="input-box" style="width: 100%;">
-                            <span class="details_span">Comprovação</span>
-                            <input name="comprovante_expulso" id="comprovante_expulso" type="text" placeholder="Em caso de inatividade, insira o link dos printscreens" required>                 
+                            <span class="details_span">Permissão</span>
+                            <input name="comprovante_expulso" id="comprovante_expulso" type="text" placeholder="Adicione a permissão de um membro da diretoria" required>                 
                         </div>
                         <div class="button">
                             <input type="submit" id="enviar_expulso" value="Enviar">
@@ -1112,18 +1132,18 @@
                       <input name="re_nick" id="re_nick" type="text" placeholder="Nickname do realocado" required>
                         </div>
                         <div class="input-box">
-                            <span class="details_span">Antigo setor</span>
+                            <span class="details_span">Antigo cargo</span>
                             <select name="min_atual" id="min_atual">
-                                <option value="" disabled selected>Selecione o atual setor</option>
+                                <option value="" disabled selected>Selecione o atual cargo</option>
                                 <option value="1">Analista</option>
                         <option value="2">Docente</option>
                         <option value="3">Arquiteto</option>
                             </select>
                         </div>
                         <div class="input-box">
-                            <span class="details_span">Novo setor</span>
+                            <span class="details_span">Novo cargo</span>
                             <select name="min_novo" id="min_novo">
-                                <option value="" disabled selected>Selecione o novo setor</option>
+                                <option value="" disabled selected>Selecione o novo cargo</option>
                                 <option value="1">Analista</option>
                                 <option value="2">Docente</option>
                                 <option value="3">Arquiteto</option>
@@ -1190,7 +1210,7 @@ function ValidaCheckBox(id){
     $('#permissao_lic').prop('required',true).prop('disabled',false);
     $('#permissao_lic').prop('required',true).prop('disabled',false);
     $('#permissão_saída').prop('required',true).prop('disabled',false);
-    $('#motivo_saida').prop('required',false).prop('disabled',true);
+    $('#motivo_saida').prop('required',true).prop('disabled',false);
     $('#saida_perm').show().change();
     $('#saida_motivo').hide().change();
  
@@ -1243,9 +1263,10 @@ function retornaDateTime(id){
 }
  
 function retornaCargo(value){
-    var cargos = ['Conselheiro', 'Manhã', 'Tarde', 'Noite', 'Madrugada', 'Manhã / Tarde', 'Tarde / Noite', 'Noite / Madrugada', 'Madrugada / Manhã'];
+    var cargos = ['Analista', 'Docente', 'Arquiteto', 'Secretário de Relações Sociais', 'Secretário de Educação', 'Vice-diretor', 'Diretor'];
     return cargos[parseInt(value) - 1];
 }
+
  
 function retornaMin(value){
   var remin = ['Atualização', 'Administração', 'Documentação', 'Recursos Humanos', 'Contabilidade'];
@@ -1275,9 +1296,9 @@ function fill_entradas(e){
             lista = lista + "\n • [b]" + nickname + '[/b] - '+ retornaData(0);
         });
  
-        if($('#necessidade_novos').val() == 1){var necessidade = "[b]✕[/b] Policiais precisam ser adicionados no subfórum."}
-        if($('#necessidade_novos').val() == 2){var necessidade = "[b]✕[/b] Policiais precisam ser adicionados no emblema."}
-        if($('#necessidade_novos').val() == 3){var necessidade = "[b]✕[/b] Policiais precisam ser adicionados no subfórum e no emblema."}
+        if($('#necessidade_novos').val() == 1){var necessidade = "Analista"}
+        if($('#necessidade_novos').val() == 2){var necessidade = "Docente"}
+        if($('#necessidade_novos').val() == 3){var necessidade = "Arquiteto"}
         if($('#necessidade_novos').val() == 4){var necessidade = "[b]✓[/b] Policiais já adicionados no emblema e subfórum."}
  
       var texto = "[font=Poppins][size=15][color=#4b2f7b][b]ENTRADA[/b][/color][/size]\n" + lista + "\n\n" + necessidade + "[/font]";
@@ -1292,35 +1313,34 @@ function fill_entradas(e){
     return isValid;
 }
  
- 
-function fill_reintegration(e){
+function fill_reintegration(e) {
     e.preventDefault();
     retornaDateTime('horario_envio_reint');
     var isValid = true;
+
+    // Verifica se todos os inputs dentro de #nickname_reintegrado têm valor
     $("#nickname_reintegrado").find("input").each(function(){
-        if($(this).val() == ""){isValid = false};
-    })
- 
-    if(isValid == true){
-        $('#enviar_rein').val('Enviando... Aguarde!').prop("disabled",true);}
- 
-    if(isValid == true){
-        if(document.getElementById("confirmar_reint").checked == true){var t = "Li e concordo com as normas de saída descritas no Código de Conduta e Ética da Comissão de Desenvolvimento Cultural.[/font]"}
-        if(document.getElementById("confirmar_reint").checked == false){var t = "Li e concordo com as normas de saída descritas no Código de Conduta e Ética da Comissão de Desenvolvimento Cultural.[/font]"}
- 
+        if ($(this).val() == "") { isValid = false; }
+    });
+
+    if (isValid) {
+        $('#enviar_rein').val('Enviando... Aguarde!').prop("disabled", true);
+
         var texto =
-            "[font=Poppins][size=15][color=#4b2f7b][b]REINTEGRAÇÃO[/b][/color][/size]\n\n" +
+            "[font=Poppins][size=15][color=#4b2f7b][b]REINTEGRAÇÃO[/b][/color][/font][/size]\n\n" +
             "• [b]" + $("#nickname_reintegrado").val() + "[/b] - " + retornaData(0) + "\n\n" +
-            "[b]Permissão:[/b] " + $("#lid_permitida").val() + "\n" +
-            "[b]Situação:[/b] " +
-            t
+            "[b]Cargo:[/b] " + $("#reint_cargo").val() + "\n" + 
+            "[b]Permissão:[/b] " + $("#lid_permitida").val() + "\n"; 
+
         document.getElementById('fa-generated-message').value = texto;
         send_data('postagem_reintegrados');
-    }
-    else{
+    } else {
         alert('Preencha todos os campos!');
     }
 }
+
+
+
  
 function fill_graduation(e){
     e.preventDefault();
@@ -1419,16 +1439,21 @@ function fill_change(e){
  
     if(isValid == true && $('#novo_cargo').val() != $('#antigo_cargo').val()){
         $('#enviar_change').val('Enviando... Aguarde!').prop("disabled",true);
-        if($('#novo_cargo').val() > $('#antigo_cargo').val()) {var tipo = 'ATUALIZAÇÃO'}else{var tipo = 'ATUALIZAÇÃO'};
+        if($('#novo_cargo').val() > $('#antigo_cargo').val()) {var tipo = 'PROMOÇÃO'}else{var tipo = 'REBAIXAMENTO'};
         var texto =
-            "[font=Poppins][size=15][color=#4b2f7b][b]" + tipo + " DE TAREFAS[/b][/color][/size] \n \n" +             
+            "[font=Poppins][size=15][color=#338da4][b]" + tipo + " DE MEMBRO[/b][/color][/size] \n \n" +             
             "[b]Nickname:[/b] " + $('#nickname_mudança_cargo').val() + "\n" +
-            "[b]Turno:[/b] " + retornaCargo($('#antigo_cargo').val()) + "\n" +
-            "[b]Tarefas:[/b] " + $('#motivo_mudança_cargo').val() + "[/font]"
+            "[b]Antigo cargo:[/b] " + retornaCargo($('#antigo_cargo').val()) + "\n" +
+            "[b]Novo cargo:[/b] " + retornaCargo($('#novo_cargo').val()) + "\n" +
+            "[b]Motivo:[/b] " + $('#motivo_mudança_cargo').val() + "[/font]"
         $('#fa-generated-message').val(texto);
         send_data('change_cargo');
     }
-    
+    else if(isValid == true && $('#novo_cargo').val() == $('#antigo_cargo').val()){
+        alert('Os cargos preenchidos não podem ser iguais!')}
+ 
+    else{
+        alert('Preencha todos os campos!')};
     return isValid;}
  
 function fill_saida(e){
@@ -1449,6 +1474,7 @@ function fill_saida(e){
                 "[font=Poppins][size=15][color=#4b2f7b][b]SAÍDA[/b][/color][/size]\n" + "\n" +
                 "[b]Nickname:[/b] " + $('#nickname_saída').val() + "\n" +
                 "[b]Permissão:[/b] " + $('#permissão_saída').val() + "\n" +
+                "[b]Motivo:[/b] " + $('#motivo_saida').val() + "\n" +
                 "\n[b]✓[/b] Li e concordo com as normas de saída descritas no Código de Conduta e Ética da Comissão de Desenvolvimento Cultural.[/font]";         
             $('#fa-generated-message').val(texto);
             send_data('saidas_honrosas');
@@ -1478,7 +1504,7 @@ function fill_expulsoes(e){
             expulsos.forEach(function(nickname){
                 lista_expulsos = lista_expulsos + "\n • [b]" + nickname + '[/b] - ' + $('#motivo_expulso').val();});
              
-                var adicional = "\n \n [b]Comprovação:[/b] " + $('#comprovante_expulso').val() + "[/font]"
+                var adicional = "\n \n [b]Permissão:[/b] " + $('#comprovante_expulso').val() + "[/font]"
 var texto =
             "[font=Poppins][size=15][color=#4b2f7b][b]EXPULSÃO[/b][/color][/size] \n" + lista_expulsos + adicional                         
         $('#fa-generated-message').val(texto);
@@ -1670,14 +1696,14 @@ $("#btn_sub").click(function(){
             $(this).find('button[type="submit"]').text('Postando...');
             setTimeout(function () {
                 $.post('/post', {
-                    t: 3,
+                    t: 12,
                         message: $('#fa-generated-message').val().trim(),
                         mode: 'reply',
                         tid: $('[name="tid"]:first').val(),
                         post: 1,
                 }).done(function () {
                         alert('Você será redirecionado para o tópico. Não esqueça de conferir sua postagem!');
-                location.href = 'http://' + location.host + '/t3-teste-para-html-parte-ii';
+                location.href = 'http://' + location.host + '/t12-topico-de-teste#12';
                     }).fail(function () {
                         alert('Houve um erro! Tente novamente!');
                     });
